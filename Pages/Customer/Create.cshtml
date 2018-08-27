@@ -1,0 +1,12 @@
+﻿@page
+@model mywebapp.Pages.Customer.CreateModel
+@addTagHelper *, Microsft.AspNetCore.Mvc.TagHelpers
+
+
+<form method="post">
+    <div>Name: 
+        <input asp-for="Customer.Name"/></div>
+    <div>
+        <button type="submit">Create</button>
+    </div>
+</form>

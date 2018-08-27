@@ -1,0 +1,24 @@
+﻿@page
+@using Microsoft.AspNetCore.Hosting.Internal
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Extensions
+@using Microsoft.AspNetCore.Http
+
+
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+
+
+
+<h2>@Configuration["Message"]</h2>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Victor</title>
+</head>
+<body>
+    <p>this is coming from @Url.RouteUrl(ViewContext.RouteData.Values)</p>
+</body>
+</html>

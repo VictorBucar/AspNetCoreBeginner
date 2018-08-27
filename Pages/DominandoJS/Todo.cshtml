@@ -1,0 +1,193 @@
+﻿@page
+
+<head>
+    <style>
+        html {
+            font: 100% font-family: helvetica, colibri, tahoma, sans-serif;
+            color: #333;
+            background-image: url("https://raw.github.com/pbalduino/livro-js-jquery/master/capitulo_06/images/brillant.png");
+            background-position: initial;
+            background-repeat: initial;
+            text-shadow: 0.1em 0.1em 0.1em #eee;
+        }
+
+        div.todo {
+            width: 40em;
+            border: 1px solid #eee;
+            margin: 0 auto;
+            padding: 1em;
+            padding-top: 0;
+            box-shadow: 0.5em 0.5em 0.5em #eee;
+            background-color: white;
+        }
+
+            div.todo h2 {
+                color: #c00;
+            }
+
+        #tarefa, .tarefa-edit {
+            font-size: 1.2em;
+        }
+
+        #tarefa {
+            width: 33em;
+        }
+
+        .tarefa-edit {
+            width: 31em;
+        }
+
+        #tarefa-list {
+            width: 40em;
+            margin-top: 1em;
+        }
+
+        .tarefa-item {
+            padding: 1em;
+            vertical-align: middle;
+        }
+
+            .tarefa-item:hover {
+                background-color: #eee;
+            }
+
+        .tarefa-text {
+            display: block;
+            float: left;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .tarefa-delete {
+            width: 16px;
+            height: 16px;
+            background-image: url("https://raw.github.com/pbalduino/livro-js-jquery/master/capitulo_06/images/delete.gif");
+            background-repeat: no-repeat;
+            display: block;
+            float: right;
+            visibility: hidden;
+        }
+
+        .tarefa-item:hover .tarefa-delete {
+            visibility: visible;
+        }
+
+        .tarefa-item, .tarefa-text, .tarefa-delete {
+            /* border: 1px solid black; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="todo">
+        <h2>TODO List</h2>
+        <input type="text" id="tarefa" placeholder="Digite aqui a sua tarefa e pressione ENTER">
+        <div id="tarefa-list">
+            <div class="tarefa-item">
+                <div class="tarefa-text">Comprar pão</div>
+                <div class="tarefa-delete"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="tarefa-item">
+                <div class="tarefa-text">Pagar a conta de luz</div>
+                <div class="tarefa-delete"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+<script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="~/lib/customJs/todo.js"></script>
+@*@<script>
+         $(function () {
+            var $lastClicked;
+
+            //função que ao clicar no botão apaga o elemento
+            function onTarefaDeleteClick() {
+                //console.log($(this).parent('.tarefa-item').text().trim());
+                $(this).parent('.tarefa-item').off('click') // desassocia todos os evento da classe tarefa-item
+                    .hide('fast', function () {
+                    $(this).remove();
+                });
+            }
+
+            function onTarefaKeydown(event) {
+                if (event.which === 13) {
+                    addTarefa($("#tarefa").val());
+                    $("#tarefa").val("");
+                }
+
+            }
+
+            function addTarefa(text) {
+                var mrg = "10";
+                var $tarefa = $("<div />").addClass("tarefa-item")
+                    .append("<div>&nbsp</div>")
+                    .append($("<div />")
+                        .addClass("tarefa-texto")
+                        .css("float", "left")
+                        .text(text))
+                    .append($("<div />").css("margin-left", mrg+"px")
+                        .addClass("tarefa-delete"))
+
+                    .append("<button>Delete</button>")
+                    .append($("<div />")
+                        .addClass("clear"));
+
+                $("#tarefa-lista").append($tarefa);
+                $(".tarefa-delete").click(onTarefaDeleteClick);
+                $(".tarefa-item").click(onTarefaItemClick);
+
+
+            }
+            // Função de clique do elemento
+            function onTarefaItemClick() {
+                if (!$(this).is($lastClicked)) {
+                    if ($lastClicked !== undefined) {
+                        savePendingEdition($lastClicked);
+
+                    }
+                    $lastClicked = $(this);
+
+                // salva o texto em uma variável
+                    var text = $lastClicked.children('.tarefa-texto').text();
+                    var html = "<input type='text' class='tarefa-edit' value='" + text + "'>";
+                    $lastClicked.html(html);
+                    $(".tarefa-edit").keydown(onTarefaEditKeydown);
+                }
+
+            }
+
+            function onTarefaEditKeydown(event) {
+                if (event.which === 13) {
+                    savePendingEdition($lastClicked);
+                    $lastClicked = undefined;
+                }
+            }
+
+            function savePendingEdition($tarefa) {
+                var text = $tarefa.children('.tarefa-edit').val();
+                $tarefa.empty();
+                $tarefa.append("<div class='tarefa-texto' style='float: left'>" + text + "</div>")
+                    .append("<div class='tarefa-delete' style='margin-left: 10px; float: left;'> <button type='button'>Delete</button></div>")
+                    .append("<div class='clear'></div>");
+
+                $('.tarefa-delete').click(onTarefaDeleteClick);
+                $tarefa.click(onTarefaItemClick);
+
+            }
+            $(".tarefa-delete").click(onTarefaDeleteClick);
+            $(".tarefa-item").click(onTarefaItemClick);
+            $("#tarefa").keydown(onTarefaKeydown);
+
+        })
+
+    </script>*@
+

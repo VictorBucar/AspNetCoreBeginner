@@ -1,8 +1,31 @@
 ﻿@page
+@using Microsoft.AspNetCore.Http
+
+@inject IHttpContextAccessor HttpContextAccessor
+
 @model mywebapp.Pages.IndexModel
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2> this is from the session - @HttpContextAccessor.HttpContext.Session.GetString("TestText")</h2>
+
+<h2>Your IP Address is: @ViewData["IP"]</h2>
+
+<p>This is server time</p>
+
+@{
+    var n = 2 + 2;
+}
+<h2>Datetime directly from razorPage @DateTime.Now</h2>
+<h2>Datetime with property from service @ViewData["Data"]</h2>
+<h2>Datetime with property without Service @Model.Time</h2>
+
+
+
+@for (int i = 0; i < n; i++)
+{
+    <p>Number of times repeated @i</p>
+}
+
 

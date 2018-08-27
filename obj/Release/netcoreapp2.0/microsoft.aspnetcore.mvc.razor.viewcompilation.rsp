@@ -1,0 +1,6 @@
+C:\Users\victor.freitas\Documents\netCoreProjects\mywebapp
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=mywebapp
+--content-root=C:\Users\victor.freitas\Documents\netCoreProjects\mywebapp
+--file=C:\Users\victor.freitas\Documents\netCoreProjects\mywebapp\Pages\Index.cshtml
+--file=C:\Users\victor.freitas\Documents\netCoreProjects\mywebapp\Pages\Victor.cshtml

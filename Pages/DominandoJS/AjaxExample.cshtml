@@ -1,0 +1,84 @@
+﻿@page
+@model mywebapp.Pages.DominandoJS.AjaxExampleModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AjaxExample</title>
+    <style>
+        body {
+            background: #20262E;
+            padding: 20px;
+            font-family: Helvetica;
+        }
+
+        #banner-message {
+            background: #fff;
+            border-radius: 4px;
+            padding: 20px;
+            font-size: 25px;
+            text-align: center;
+            transition: all 0.2s;
+            margin: 0 auto;
+            width: 300px;
+        }
+
+        button {
+            background: #0084ff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 14px;
+            font-size: 15px;
+            color: #fff;
+        }
+
+        #banner-message.alt {
+            background: #0084ff;
+            color: #fff;
+            margin-top: 40px;
+            width: 200px;
+        }
+
+        #banner-message.alt button {
+            background: #fff;
+            color: #000;
+        }
+    </style>
+    
+</head>
+<body>
+<div id="banner-message">
+    <p>Hello World</p>
+    <input type="text" id="cep"/>
+    <button>Change color</button>
+</div>
+</body>
+</html>
+<script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.10.2.js" type="text/javascript"></script>
+
+<script src="~/lib/customJs/ajaxEx.js"></script>
+@*<script>
+    var $banner = $("#banner-message")
+    var $button = $("button")
+    var $msg = $("p")
+
+    const service = "https://livro-capitulo07.herokuapp.com/hello";
+
+    function callService() {
+
+        $.get(service,function(data) {
+            $msg.text(data);
+            });
+    }
+// handle click and add class
+    $button.on("click", function(){
+        $banner.addClass("alt")
+        callService()
+    })
+
+</script>*@
